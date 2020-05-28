@@ -33,6 +33,11 @@ namespace PracTest2
         //The gap between the B and C seats
         const int AISLE_GAP = 5;
 
+        //Minimum number of rows
+        const int MIN_ROWS = 2;
+        //Maximum number of rows
+        const int MAX_ROWS = 25;
+
         public Form1()
         {
             InitializeComponent();
@@ -58,6 +63,43 @@ namespace PracTest2
             pictureBoxDisplay.Refresh();
             textBoxRows.Clear();
             textBoxRows.Focus();
+        }
+
+        private void buttonDrawSeats_Click(object sender, EventArgs e)
+        {
+            Graphics paper = pictureBoxDisplay.CreateGraphics();
+            Pen pen1 = new Pen(Color.Blue, 1);
+            int x = SEAT_STARTX;
+            int y = SEAT_STARTY;
+            int numRows = 0;
+
+            try
+            {
+                //Get the number of rows
+                numRows = int.Parse(textBoxRows.Text);
+                //Check if the number of rows is valid
+                if (numRows >= MIN_ROWS && numRows <= MAX_ROWS)
+                {
+
+
+                    //Draw seat at current x and y position
+                    paper.DrawRectangle(pen1, x, y, SEAT_WIDTH, SEAT_LENGTH);
+                }
+                else
+                {
+                    //Display an error message and clear and give the focus
+                    MessageBox.Show("Please enter a value between 2 and 25 inclusive");
+                    textBoxRows.Clear();
+                    textBoxRows.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                //Display an error message and clear and give the focus
+                MessageBox.Show(ex.Message);
+                textBoxRows.Clear();
+                textBoxRows.Focus();
+            }
         }
     }
 }

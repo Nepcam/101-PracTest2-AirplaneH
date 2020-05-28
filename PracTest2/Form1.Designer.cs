@@ -71,6 +71,7 @@
             this.buttonDrawSeats.TabIndex = 5;
             this.buttonDrawSeats.Text = "Draw Seats";
             this.buttonDrawSeats.UseVisualStyleBackColor = true;
+            this.buttonDrawSeats.Click += new System.EventHandler(this.buttonDrawSeats_Click);
             // 
             // buttonClear
             // 
