@@ -72,6 +72,7 @@ namespace PracTest2
             int x = SEAT_STARTX;
             int y = SEAT_STARTY;
             int numRows = 0;
+            int gapSize = 0;
 
             try
             {
@@ -80,10 +81,45 @@ namespace PracTest2
                 //Check if the number of rows is valid
                 if (numRows >= MIN_ROWS && numRows <= MAX_ROWS)
                 {
-
-
-                    //Draw seat at current x and y position
-                    paper.DrawRectangle(pen1, x, y, SEAT_WIDTH, SEAT_LENGTH);
+                    //Calculate the gap size
+                    gapSize = PLANE_LENGTH / numRows - SEAT_LENGTH;
+                    //Add the gap amount to the first seat position
+                    x += gapSize;
+                    //FOR each line of seats to draw
+                    for (int line = 1; line <= SEATS_IN_ROW; line++)
+                    {
+                        //FOR each seat to draw
+                        for (int seat = 1; seat <= numRows; seat++)
+                        {
+                            //Check if current seat is a first class seat
+                            if (seat <= ROWS_FIRST_CLASS)
+                            {
+                                pen1.Color = Color.Red;
+                            }
+                            else
+                            {
+                                pen1.Color = Color.Blue;
+                            }
+                            //Draw seat at current x and y position
+                            paper.DrawRectangle(pen1, x, y, SEAT_WIDTH, SEAT_LENGTH); // Dont use const for your x and y positions
+                            //SHIFT to the right by the width of the seat + gap
+                            x += SEAT_WIDTH + gapSize;
+                            //Pause the application
+                            //System.Threading.Thread.Sleep(200);
+                        }
+                        //SHIFT y down by the height of the seat
+                        y += SEAT_LENGTH;
+                        //Check if drawn all the B seats
+                        if (line == 2)
+                        {
+                            //SHIFT y down by the aisle gap
+                            y += AISLE_GAP;
+                        }
+                        //SHIFT x to the start of the line
+                        x = SEAT_STARTX + gapSize;
+                    }
+                   
+                    
                 }
                 else
                 {
