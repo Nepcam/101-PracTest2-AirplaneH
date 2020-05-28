@@ -1,0 +1,36 @@
+Declare variables
+TRY
+   GET the number of rows from textbox
+   IF number of rows is valid THEN
+      Calculate the gap size
+      Add gap size to the current x postion
+      FOR each set of seats to draw
+         FOR each seat to draw
+            IF current seat is first class seat THEN
+               Set brush color to red
+            ELSE
+               Set brush color to blue
+            ENDIF
+            Draw seat at current x and y position
+            Shift x to the right by width of seat + gap    
+         ENDFOR
+         Shift y down by the height of the seat
+         IF drawn all the B seats THEN
+            Shift y down by the aisle gap
+         ENDIF
+         Set x to start of the seats 
+      ENDFOR
+   ELSE
+      Display an error message
+      Clear the textbox
+      Set focus to the textbox
+   ENDIF
+CATCH
+   Display Error message
+   Clear the textbox
+   Set focus to the textbox
+ENDTRY
+
+
+
+

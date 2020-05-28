@@ -37,5 +37,27 @@ namespace PracTest2
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Closes the application.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        /// <summary>
+        /// Clears the picture box and textbox and sets focus to the textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            pictureBoxDisplay.Refresh();
+            textBoxRows.Clear();
+            textBoxRows.Focus();
+        }
     }
 }
