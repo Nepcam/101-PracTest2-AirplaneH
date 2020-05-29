@@ -101,8 +101,8 @@ namespace PracTest2
                                 pen1.Color = Color.Blue;
                             }
                             //Draw seat at current x and y position
-                            paper.DrawRectangle(pen1, x, y, SEAT_WIDTH, SEAT_LENGTH); // Dont use const for your x and y positions
-                            //SHIFT to the right by the width of the seat + gap
+                            paper.DrawRectangle(pen1, x, y, SEAT_WIDTH, SEAT_LENGTH); 
+                            //SHIFT to the right by the width of the seat + gap - after the first draw, we shift to the right
                             x += SEAT_WIDTH + gapSize;
                         }
                         //SHIFT y down by the height of the seat
