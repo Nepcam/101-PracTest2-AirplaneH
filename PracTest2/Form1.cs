@@ -104,8 +104,6 @@ namespace PracTest2
                             paper.DrawRectangle(pen1, x, y, SEAT_WIDTH, SEAT_LENGTH); // Dont use const for your x and y positions
                             //SHIFT to the right by the width of the seat + gap
                             x += SEAT_WIDTH + gapSize;
-                            //Pause the application
-                            //System.Threading.Thread.Sleep(200);
                         }
                         //SHIFT y down by the height of the seat
                         y += SEAT_LENGTH;
